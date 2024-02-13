@@ -1,0 +1,25 @@
+.img-container {
+  width: 100vw;
+  height: 400px;
+  overflow: hidden;
+}
+
+.image-carousal {
+  width: 1000%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-carousal > .card{
+    width: 10%;
+    height: 100%;
+
+    transition: all 0.5s ease;
+}
+
+.image-carousal > .card > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
