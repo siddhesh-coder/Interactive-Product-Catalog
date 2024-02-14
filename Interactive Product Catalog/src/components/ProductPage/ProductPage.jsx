@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import "./ProductPage.css";
 import ProductCard from "../ProductCard/ProductCard";
 import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
+import { Link } from 'react-router-dom';
 
 const ProductPage = () => {
   const data = useFetchData();
@@ -45,7 +48,9 @@ const ProductPage = () => {
         <h1>{currTitle}</h1>
         <div className="product-showcase-page">
           {productInfo.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <Link key={product.id} to={`/product-details/${product.id}`}>
+             <ProductCard  product={product} />
+            </Link>
           ))}
         </div>
       </div>
