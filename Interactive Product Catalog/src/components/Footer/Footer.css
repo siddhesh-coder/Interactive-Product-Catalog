@@ -1,6 +1,4 @@
 footer {
-  position: relative;
-  top: 300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+/* .container::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+} */

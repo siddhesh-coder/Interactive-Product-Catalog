@@ -8,10 +8,6 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const App = () => {
   const onlineStatus = useOnlineStatus();
-  
- 
-
-  
 
   return (
     <Auth0Provider
@@ -21,7 +17,7 @@ const App = () => {
       redirect_uri: window.location.origin
     }}
   >
-    <div>
+    <div className="container">
       {onlineStatus ? (
         <>
           <Navbar />
@@ -30,7 +26,7 @@ const App = () => {
             <Outlet />
           </main>
 
-          <Footer />
+          {/* <Footer /> */}
         </>
       ) : (
         <InternetConnectionMessage />
