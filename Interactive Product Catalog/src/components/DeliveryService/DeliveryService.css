@@ -1,0 +1,26 @@
+.product-service{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  
+    .product-service-data{
+      text-align: center;
+    }
+  
+    .service-logo{
+      background-color: rgba(220, 220, 220, 0.5);
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      padding: 0.5rem;
+    }
+  
+    p{
+      font-size: 1.1rem;
+      padding-top: 0.4rem;
+    }
+  }
+  

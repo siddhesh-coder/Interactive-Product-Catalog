@@ -22,31 +22,18 @@
     margin-bottom: .6em;
 }
 
-.stars{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.stars > svg{
-    color: rgb(255, 238, 0);
-    width: 20px;
-}
-
-.stars span{
-    margin-right: 8px;
-    font-size: .85em;
-    color:  rgb(36, 36, 36);
-}
-
-.star span, .description p {
-    font-size: .85em;
-    color: rgb(36, 36, 36);
-}
-
 .product-name, .price {
     font-size: 1.3em;
     color: #000;
+}
+
+.card-rate{
+    display: flex;
+}
+
+.card-rate > span{
+    margin-right: 10px;
+    color: black;
 }
 
 .product-name{
@@ -73,8 +60,12 @@
 }
 
 .card-button{
+    width: 110px;
+    font-size: 1.1em;
+    font-weight: 600;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: #06d6a0;
     padding: .5em;
     border-radius: .5em;

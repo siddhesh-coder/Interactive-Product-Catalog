@@ -1,0 +1,22 @@
+.productCount-toggle{
+    width: 120px;
+    display: flex;
+    border-radius: 8px;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(171, 171, 171);
+}
+
+.productCount{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.productCount-toggle > button{
+    width: 50px;
+    background-color: transparent;
+    border-style: none;
+    padding-top: 7px;
+    cursor: pointer;
+}

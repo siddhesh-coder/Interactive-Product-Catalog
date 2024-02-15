@@ -9,7 +9,7 @@
   justify-content: space-between;
   background-color: #fff;
   box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
-  padding: 10px 7%;
+  padding: 10px 5%;
   z-index: 5;
   transition: 0.5s;
 }

@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./components/Header/Navbar";
 import Footer from "./components/Footer/Footer";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { CartProvider } from "./components/Context/cart_context";
 
 const App = () => {
   const onlineStatus = useOnlineStatus();
@@ -17,17 +18,19 @@ const App = () => {
         redirect_uri: window.location.origin,
       }}
     >
-      {onlineStatus ? (
-        <>
-          <Navbar />
+      <CartProvider>
+        {onlineStatus ? (
+          <>
+            <Navbar />
 
-          <Outlet />
+            <Outlet />
 
-          <Footer />
-        </>
-      ) : (
-        <InternetConnectionMessage />
-      )}
+            {/* <Footer /> */}
+          </>
+        ) : (
+          <InternetConnectionMessage />
+        )}
+      </CartProvider>
     </Auth0Provider>
   );
 };

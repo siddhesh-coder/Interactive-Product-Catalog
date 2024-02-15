@@ -3,6 +3,12 @@
     flex-wrap: wrap;
 }
 
+.product-showcase-page a{
+    text-decoration: none;
+}
+
+
+
 .product-cat-container{
     width: 100vw;
     height: 100vh;
