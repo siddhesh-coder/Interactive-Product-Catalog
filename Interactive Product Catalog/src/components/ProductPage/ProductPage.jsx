@@ -41,7 +41,6 @@ const ProductPage = () => {
         setCurrTitle("");
     }
   };
-  console.log(categoryId);
   return (
     <>
       <div className="product-cat-container">

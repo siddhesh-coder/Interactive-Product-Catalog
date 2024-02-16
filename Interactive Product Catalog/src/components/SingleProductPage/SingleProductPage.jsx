@@ -8,7 +8,6 @@ import FormatePrice from "../FormatPrice/FormatePrice";
 import Ratings from "../Ratings/Ratings";
 import DeliveryService from "../DeliveryService/DeliveryService";
 import CartAmount from "../CartAmount/CartAmount";
-import { NavLink } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { useCartContext } from "../Context/cart_context";
 
@@ -61,17 +60,16 @@ const SingleProductPage = () => {
               setIncrement={setIncrement}
               setDecrement={setDecrement}
             />
-            <NavLink
-              to="/cart"
+
+            <button
               onClick={() => addToCart(id, productCount, singleData)}
+              className="add-button"
             >
-              <button className="add-button">
-                <p>Add to cart</p>
-                <div className="cart-add-icon">
-                  <ShoppingCart />
-                </div>
-              </button>
-            </NavLink>
+              <p>Add to cart</p>
+              <div className="cart-add-icon">
+                <ShoppingCart />
+              </div>
+            </button>
           </div>
         </div>
       </div>
