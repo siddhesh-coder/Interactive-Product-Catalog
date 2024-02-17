@@ -6,6 +6,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { useParams } from "react-router-dom";
 import useFetchData from "../../hooks/useFetchData";
 import { Link } from "react-router-dom";
+import Shimmer from "../Shimmer/Shimmer";
 
 const ProductPage = () => {
   const data = useFetchData();
@@ -56,6 +57,10 @@ const ProductPage = () => {
     }
     setProductInfo(sortedProducts);
   };
+
+  if(productInfo.length === 0){
+    return <Shimmer/>
+  }
 
   return (
     <>

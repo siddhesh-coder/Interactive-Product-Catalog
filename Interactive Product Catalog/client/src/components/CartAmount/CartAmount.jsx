@@ -6,11 +6,11 @@ const CartAmount = ({productCount, setIncrement, setDecrement}) => {
   return (
     <div className='cart-add-button'>
         <div className='productCount-toggle'>
-            <button onClick={() => setDecrement()}>
+            <button type="button" onClick={() => setDecrement()}>
                 <FaMinus/>
             </button>
             <div className='productCount'>{productCount}</div>
-            <button onClick={() => setIncrement()}>
+            <button type="button" onClick={() => setIncrement()}>
                 <FaPlus/>
             </button>
         </div>

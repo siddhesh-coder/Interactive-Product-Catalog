@@ -12,7 +12,7 @@ const Navbar = () => {
   const { total_item } = useCartContext();
 
   const notify = () => {
-    toast.success('Successfully Logout', {
+    toast.success("Successfully Logout", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -21,8 +21,8 @@ const Navbar = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-      });
-  }
+    });
+  };
 
   return (
     <header className="navbar">
@@ -30,54 +30,63 @@ const Navbar = () => {
         <img src={company_logo} alt="Company logo" className="nav-logo" />
       </Link>
 
-      <ul>
-        <li>
-          <NavLink to={"/"}>Home</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/product-details/men's clothing"}>Men</NavLink>
-        </li>
-
-        <li>
-          <NavLink>Women</NavLink>
-        </li>
-
-        {isAuthenticated ? (
+      <nav>
+        <ul>
           <li>
-            <button
-              className="user-btn"
-              onClick={() =>{
-                logout({ logoutParams: { returnTo: window.location.origin } })
-                notify();
-              }}
-            >
-              Log Out
-            </button>
+            <NavLink to={"/"}>Home</NavLink>
           </li>
-        ) : (
           <li>
-            <button className="user-btn" onClick={() => loginWithRedirect()}>
-              Log In
-            </button>
+            <NavLink to={`/product-page/${"men's clothing"}`}>Men</NavLink>
           </li>
-        )}
 
-        {isAuthenticated ? (
-          <li className="cart-logo">
-            <NavLink to={"/cart"}>
-              <ShoppingCart />
-              <span className="cart-item-count">{total_item}</span>
-            </NavLink>
+          <li>
+            <NavLink to={`/product-page/${"women's clothing"}`}>Women</NavLink>
           </li>
-        ) : (
-          <li className="cart-logo">
-            <NavLink onClick={() => loginWithRedirect()}>
-              <ShoppingCart />
-              <span className="cart-item-count">{total_item}</span>
-            </NavLink>
-          </li>
-        )}
-      </ul>
+
+          {isAuthenticated ? (
+            <li>
+              <button
+                type="button"
+                className="user-btn"
+                onClick={() => {
+                  logout({
+                    logoutParams: { returnTo: window.location.origin },
+                  });
+                  notify();
+                }}
+              >
+                Log Out
+              </button>
+            </li>
+          ) : (
+            <li>
+              <button
+                type="button"
+                className="user-btn"
+                onClick={() => loginWithRedirect()}
+              >
+                Log In
+              </button>
+            </li>
+          )}
+
+          {isAuthenticated ? (
+            <li className="cart-logo">
+              <NavLink to={"/cart"}>
+                <ShoppingCart />
+                <span className="cart-item-count">{total_item}</span>
+              </NavLink>
+            </li>
+          ) : (
+            <li className="cart-logo">
+              <NavLink onClick={() => loginWithRedirect()}>
+                <ShoppingCart />
+                <span className="cart-item-count">{total_item}</span>
+              </NavLink>
+            </li>
+          )}
+        </ul>
+      </nav>
     </header>
   );
 };

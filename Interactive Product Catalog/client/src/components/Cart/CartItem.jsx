@@ -5,6 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../Context/cart_context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const CartItem = ({ id, name, price, productCount, image }) => {
   const { removeItem, setDecrement, setIncrement } = useCartContext();
@@ -52,10 +53,10 @@ const CartItem = ({ id, name, price, productCount, image }) => {
           <FormatePrice price={price * productCount} />
         </p>
       </div>
-
-      <div>
+      
+        <Link>
         <FaTrash className="remove_icon" onClick={() => {removeItem(id); notify()}} />
-      </div>
+        </Link>
     </div>
   );
 };

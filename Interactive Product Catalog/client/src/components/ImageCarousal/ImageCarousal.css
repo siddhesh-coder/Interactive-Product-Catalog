@@ -9,16 +9,16 @@
   height: 100%;
   display: flex;
   flex-direction: row;
+  transition: margin-left 0.5s ease;
 }
 
-.image-carousal > .card{
-    width: 10%;
-    height: 100%;
-    transition: all 0.5s ease;
+.image-carousal > .card {
+  width: 100%;
+  height: 100%;
 }
 
-.image-carousal > .card > img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.image-carousal > .card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

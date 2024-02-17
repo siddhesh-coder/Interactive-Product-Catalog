@@ -25,7 +25,9 @@
 }
 
 .single-description {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(40, 44, 63)
 }
 
 .product-info {
@@ -36,6 +38,17 @@
 
   span {
     font-weight: bold;
+  }
+
+  .pro-name{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color:rgb(40, 44, 63);
+  }
+
+  .pro-col{
+    color:rgb(40, 44, 63);
   }
 }
 

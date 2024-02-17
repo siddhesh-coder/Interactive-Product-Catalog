@@ -38,6 +38,15 @@ ul a {
   text-decoration: none;
 }
 
+ul a:hover {
+  transition: 0.2s;
+  color: #088178;
+}
+
+ul a.active{
+  color: #088178;
+}
+
 .user-btn{
   background-color: transparent;
   width: 5rem;

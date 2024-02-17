@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ImageCarousal.css";
 
 import image1 from "../../assets/Image_Carousal/179e278f-77ee-44c2-bf39-9f00b0cd08e01658752429301-Handbags_Desk.webp";
@@ -12,72 +12,38 @@ import image8 from "../../assets/Image_Carousal/0174e4d7-448c-4746-8572-69461ad5
 import image9 from "../../assets/Image_Carousal/4031994d-9092-4aa7-aea1-f52f2ae5194f1654006594976-Activewear_DK.webp";
 import image10 from "../../assets/Image_Carousal/09f0df54-6f8f-4bb0-a4b9-3b374d4538561649782019495-Top-Brands-2_Desk_Banner.webp";
 
-const ImageCarousal = () => {
-  const [count, setCount] = useState(0);
-  const [margin, setMargin] = useState("0%");
-  const [forward, setForward] = useState(true);
+const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
+const totalImages = images.length;
 
-  const shiftImg = (count) => {
-    setMargin(`-${count * 10}%`);
-  };
+const ImageCarousal = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [marginLeft, setMarginLeft] = useState(0);
+  const [forward, setForward] = useState(true);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (forward) {
-        if (count === 9) {
-          setForward(false);
-        } else {
-          setCount((prevCount) => prevCount + 1);
-        }
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
       } else {
-        if (count === 0) {
-          setForward(true);
-        } else {
-          setCount((prevCount) => prevCount - 1);
-        }
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? totalImages - 1 : prevIndex - 1));
       }
     }, 4000);
 
     return () => clearInterval(intervalId);
-  }, [count, forward]);
+  }, [forward]);
 
   useEffect(() => {
-    shiftImg(count);
-  }, [count]);
+    setMarginLeft(-currentIndex * 100);
+  }, [currentIndex]);
 
   return (
     <div className="img-container">
-      <div className="image-carousal">
-        <div className="card" style={{ marginLeft: margin }}>
-          <img src={image1} alt="image1" />
-        </div>
-        <div className="card">
-          <img src={image2} alt="image2" />
-        </div>
-        <div className="card">
-          <img src={image3} alt="image3" />
-        </div>
-        <div className="card">
-          <img src={image4} alt="image4" />
-        </div>
-        <div className="card">
-          <img src={image5} alt="image5" />
-        </div>
-        <div className="card">
-          <img src={image6} alt="image6" />
-        </div>
-        <div className="card">
-          <img src={image7} alt="image7" />
-        </div>
-        <div className="card">
-          <img src={image8} alt="image8" />
-        </div>
-        <div className="card">
-          <img src={image9} alt="image9" />
-        </div>
-        <div className="card">
-          <img src={image10} alt="image10" />
-        </div>
+      <div className="image-carousal" style={{ marginLeft: `${marginLeft}%` }}>
+        {images.map((image, index) => (
+          <div className="card" key={index}>
+            <img src={image} alt={`image${index + 1}`} />
+          </div>
+        ))}
       </div>
     </div>
   );

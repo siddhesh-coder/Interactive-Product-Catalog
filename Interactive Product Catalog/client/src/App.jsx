@@ -23,10 +23,8 @@ const App = () => {
         {onlineStatus ? (
           <>
             <Navbar />
-
             <Outlet />
-
-            {/* <Footer /> */}
+            <Footer />
           </>
         ) : (
           <InternetConnectionMessage />

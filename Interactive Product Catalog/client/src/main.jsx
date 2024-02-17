@@ -1,14 +1,20 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
-import ProductPage from "../src/components/ProductPage/ProductPage.jsx";
-import SingleProductPage from "./components/SingleProductPage/SingleProductPage.jsx";
-import Cart from "./components/Cart/Cart.jsx";
-import Success from "./components/Payment/Success.jsx";
-import Cancel from "./components/Payment/Cancel.jsx";
+import Errors from "./components/Error/Errors.jsx";
+import Shimmer from "./components/Shimmer/Shimmer.jsx";
+
+const ProductPage = lazy(() =>
+  import("../src/components/ProductPage/ProductPage.jsx")
+);
+const Success = lazy(() => import("./components/Payment/Success.jsx"));
+const Cancel = lazy(() => import("./components/Payment/Cancel.jsx"));
+const Cart = lazy(() => import("./components/Cart/Cart.jsx"));
+const SingleProductPage = lazy(() =>
+  import("./components/SingleProductPage/SingleProductPage.jsx")
+);
 
 const router = createBrowserRouter([
   {
@@ -21,25 +27,50 @@ const router = createBrowserRouter([
       },
       {
         path: "/product-page/:categoryId",
-        element: <ProductPage />,
+        element: (
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <ProductPage />
+          </Suspense>
+        ),
       },
       {
-        path: '/product-details/:productId',
-        element: <SingleProductPage/>
+        path: "/product-details/:productId",
+        element: (
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <SingleProductPage />
+          </Suspense>
+        ),
       },
       {
-        path: '/cart',
-        element: <Cart/>
+        path: "/cart",
+        element: (
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
-        path: '/success',
-        element: <Success/>
+        path: "/success",
+        element: (
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <Success />
+          </Suspense>
+        ),
       },
       {
-        path: '/cancel',
-        element: <Cancel/>
+        path: "/cancel",
+        element: (
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <Cancel />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/shimmer',
+        element: <Shimmer/>
       }
     ],
+    errorElement: <Errors />,
   },
 ]);
 

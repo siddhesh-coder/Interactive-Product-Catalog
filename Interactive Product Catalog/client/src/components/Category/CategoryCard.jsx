@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const CategoryCard = ({ card }) => {
   const { image, category, id } = card;
-  console.log(id);
   return (
     <Link to={`/product-page/${id}`}>
       <div className="category-card">

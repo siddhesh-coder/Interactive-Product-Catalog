@@ -68,7 +68,7 @@ const TotalPricing = () => {
         </span>
       </div>
 
-      <button onClick={makePayment}>
+      <button type="button" onClick={makePayment}>
         <span>Checkout</span>
       </button>
     </div>
