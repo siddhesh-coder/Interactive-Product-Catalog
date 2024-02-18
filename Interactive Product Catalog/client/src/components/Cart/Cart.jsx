@@ -36,9 +36,9 @@ const Cart = () => {
     <div className="cart-main-container">
       <div className="cart_heading grid-five-column">
         <p>Item</p>
-        <p className="cart_hide">Price</p>
+        <p className="cart-hide">Price</p>
         <p>Quantity</p>
-        <p className="cart_hide">Subtotal</p>
+        <p className="cart-hide">Subtotal</p>
         <p>Remove</p>
       </div>
 

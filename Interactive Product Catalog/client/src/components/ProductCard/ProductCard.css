@@ -90,9 +90,18 @@
     padding: .7em .3em;
 }
 
-/* @media screen and (min-width: 500px){
-    .card{
-        width: 350px;
-        margin: 0 auto;
+/* Media query for tablets */
+@media (max-width: 768px) {
+    .product-card {
+      width: 300px;
+      margin: 20px;
     }
-} */
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 576px) {
+    .product-card {
+      width: calc(100% - 40px);
+      margin: 20px 0;
+    }
+  }

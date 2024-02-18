@@ -120,3 +120,27 @@
 .flash-span {
   animation: flashing 1s infinite;
 }
+
+/* Mobile and Tablet Responsive CSS */
+@media (max-width: 768px) {
+  .single-product-container {
+    width: 90%; /* Reduce width for better mobile and tablet layout */
+    padding: 5rem 0 0 0;
+    grid-template-columns: 1fr; /* Switch to single column layout for mobile and tablet */
+  }
+
+  .product-images > img {
+    max-height: 650px; /* Adjust max height for mobile and tablet */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 576px) {
+  .single-product-container {
+    padding: 4rem 0; /* Adjust padding for smaller mobile screens */
+  }
+
+  .product-images > img {
+    max-height: 300px; /* Adjust max height for smaller mobile screens */
+  }
+}

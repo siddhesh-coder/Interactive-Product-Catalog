@@ -37,10 +37,10 @@ const ImageCarousal = () => {
   }, [currentIndex]);
 
   return (
-    <div className="img-container">
-      <div className="image-carousal" style={{ marginLeft: `${marginLeft}%` }}>
+    <div className="img-container-c">
+      <div className="image-carousal-c" style={{ marginLeft: `${marginLeft}%` }}>
         {images.map((image, index) => (
-          <div className="card" key={index}>
+          <div className="card-c" key={index}>
             <img src={image} alt={`image${index + 1}`} />
           </div>
         ))}

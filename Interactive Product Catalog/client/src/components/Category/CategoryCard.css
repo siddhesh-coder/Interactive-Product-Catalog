@@ -27,3 +27,28 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
+
+@media (max-width: 768px) {
+  .category-card {
+    width: 200px; /* Adjust width for tablet */
+    height: 350px; /* Adjust height for tablet */
+    margin: 30px 10px 10px 10px; /* Adjust margin for tablet */
+  }
+
+  .card-name {
+    font-size: 20px; /* Adjust font-size for tablet */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 576px) {
+  .category-card {
+    width: 150px; /* Adjust width for mobile */
+    height: 300px; /* Adjust height for mobile */
+    margin: 20px 5px 5px 5px; /* Adjust margin for mobile */
+  }
+
+  .card-name {
+    font-size: 15px; /* Adjust font-size for mobile */
+  }
+}

@@ -1,15 +1,19 @@
 import "./Navbar.css";
 import company_logo from "../../assets/company_logo.webp";
-import { ShoppingCart } from "lucide-react";
+import { AlignJustify, ShoppingCart, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCartContext } from "../Context/cart_context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { total_item } = useCartContext();
+  const [menuClicked, setMenuClicked] = useState(false);
+
+  console.log(menuClicked);
 
   const notify = () => {
     toast.success("Successfully Logout", {
@@ -30,17 +34,29 @@ const Navbar = () => {
         <img src={company_logo} alt="Company logo" className="nav-logo" />
       </Link>
 
-      <nav>
+      <nav className={menuClicked ? " menu-bar mobile-menu-link" : "menu-bar"}>
         <ul>
           <li>
-            <NavLink to={"/"}>Home</NavLink>
+            <NavLink to={"/"} onClick={() => setMenuClicked(false)}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={`/product-page/${"men's clothing"}`}>Men</NavLink>
+            <NavLink
+              to={`/product-page/${"men's clothing"}`}
+              onClick={() => setMenuClicked(false)}
+            >
+              Men
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to={`/product-page/${"women's clothing"}`}>Women</NavLink>
+            <NavLink
+              to={`/product-page/${"women's clothing"}`}
+              onClick={() => setMenuClicked(false)}
+            >
+              Women
+            </NavLink>
           </li>
 
           {isAuthenticated ? (
@@ -72,7 +88,7 @@ const Navbar = () => {
 
           {isAuthenticated ? (
             <li className="cart-logo">
-              <NavLink to={"/cart"}>
+              <NavLink to={"/cart"} onClick={() => setMenuClicked(false)}>
                 <ShoppingCart />
                 <span className="cart-item-count">{total_item}</span>
               </NavLink>
@@ -87,6 +103,13 @@ const Navbar = () => {
           )}
         </ul>
       </nav>
+      <button
+        type="button"
+        className="hamburger-menu"
+        onClick={() => setMenuClicked(!menuClicked)}
+      >
+        {menuClicked ? <X /> : <AlignJustify />}
+      </button>
     </header>
   );
 };

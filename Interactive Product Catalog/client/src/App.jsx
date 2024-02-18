@@ -22,7 +22,7 @@ const App = () => {
       <CartProvider>
         {onlineStatus ? (
           <>
-            <Navbar />
+            <Navbar/>
             <Outlet />
             <Footer />
           </>

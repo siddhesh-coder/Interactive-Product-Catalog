@@ -19,3 +19,27 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+/* Media query for tablet devices */
+@media (max-width: 768px) {
+  .category-container a {
+    margin-left: 30px;
+  }
+  .category-title {
+    font-size: 40px;
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 576px) {
+  .category-container {
+    margin-top: 50px; /* Reduce margin-top for mobile */
+  }
+  .category-title {
+    font-size: 30px; /* Reduce font size for mobile */
+  }
+  .category-list {
+    margin-left: 70px;
+    margin-right: 60px;
+  }
+}
