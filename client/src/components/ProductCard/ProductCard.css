@@ -25,7 +25,7 @@
 .product-name,
 .price {
   font-size: 1.3em;
-  color: #000;
+  color: rgb(40, 44, 63);
 }
 
 .card-rate {
@@ -34,7 +34,7 @@
 
 .card-rate > span {
   margin-right: 10px;
-  color: black;
+  color: rgb(40, 44, 63);
 }
 
 .product-name {
