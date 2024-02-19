@@ -1,5 +1,7 @@
 # Interactive Product Catalog Overview [QuickMart]
 
+**Live Link:**
+
 **Description:**
 
 This project is a web application consisting of various components to create an interactive product catalog. It allows users to browse through products, view product details, login/logout, handle errors, and manage their cart. The application integrates with Auth0 for authentication and Stripe for payment processing.
