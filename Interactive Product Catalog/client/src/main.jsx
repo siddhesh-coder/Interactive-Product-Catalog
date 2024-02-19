@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/product-page/:categoryId",
         element: (
-          <Suspense fallback={<h3>Loading...</h3>}>
+          <Suspense fallback={<Shimmer/>}> 
             <ProductPage />
           </Suspense>
         ),
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/product-details/:productId",
         element: (
-          <Suspense fallback={<h3>Loading...</h3>}>
+          <Suspense fallback={<Shimmer/>}>
             <SingleProductPage />
           </Suspense>
         ),
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: (
-          <Suspense fallback={<h3>Loading...</h3>}>
+          <Suspense fallback={<Shimmer/>}>
             <Cart />
           </Suspense>
         ),

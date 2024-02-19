@@ -30,7 +30,7 @@ export const Footer = () => {
     <footer className="section-p1">
       <div className="col">
         <Link to={'/'}>
-          <webn className="logo">QuickMart</webn>
+          <p className="logo">QuickMart</p>
         </Link>
         <h4>Contact</h4>
         <p>

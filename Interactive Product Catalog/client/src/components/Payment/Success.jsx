@@ -1,8 +1,11 @@
-import React from 'react'
+import './payment.css';
+import { SUCCESS } from '../../utils/constants/constants';
 
 const Success = () => {
   return (
-    <div>Success</div>
+    <div className='payment-container'>
+      <img src={SUCCESS} alt="success" />
+    </div>
   )
 }
 

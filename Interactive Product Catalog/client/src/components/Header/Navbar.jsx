@@ -6,14 +6,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useCartContext } from "../Context/cart_context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const { total_item } = useCartContext();
   const [menuClicked, setMenuClicked] = useState(false);
 
-  console.log(menuClicked);
+  const handleLogout = () => {
+    logout({ logoutParams: { returnTo: window.location.origin } });
+    notify();
+  };
 
   const notify = () => {
     toast.success("Successfully Logout", {
@@ -27,6 +30,32 @@ const Navbar = () => {
       theme: "light",
     });
   };
+
+  const handleMenuClick = () => {
+    setMenuClicked(!menuClicked);
+  };
+
+  const authButton = isAuthenticated ? (
+    <button type="button" className="user-btn" onClick={handleLogout}>
+      Log Out
+    </button>
+  ) : (
+    <button type="button" className="user-btn" onClick={loginWithRedirect}>
+      Log In
+    </button>
+  );
+
+  const cartLink = isAuthenticated ? (
+    <NavLink to={"/cart"} onClick={() => setMenuClicked(false)}>
+      <ShoppingCart />
+      <span className="cart-item-count">{total_item}</span>
+    </NavLink>
+  ) : (
+    <NavLink onClick={loginWithRedirect}>
+      <ShoppingCart />
+      <span className="cart-item-count">{total_item}</span>
+    </NavLink>
+  );
 
   return (
     <header className="navbar">
@@ -42,72 +71,20 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to={`/product-page/${"men's clothing"}`}
-              onClick={() => setMenuClicked(false)}
-            >
+            <NavLink to={`/product-page/${"men's clothing"}`} onClick={() => setMenuClicked(false)}>
               Men
             </NavLink>
           </li>
-
           <li>
-            <NavLink
-              to={`/product-page/${"women's clothing"}`}
-              onClick={() => setMenuClicked(false)}
-            >
+            <NavLink to={`/product-page/${"women's clothing"}`} onClick={() => setMenuClicked(false)}>
               Women
             </NavLink>
           </li>
-
-          {isAuthenticated ? (
-            <li>
-              <button
-                type="button"
-                className="user-btn"
-                onClick={() => {
-                  logout({
-                    logoutParams: { returnTo: window.location.origin },
-                  });
-                  notify();
-                }}
-              >
-                Log Out
-              </button>
-            </li>
-          ) : (
-            <li>
-              <button
-                type="button"
-                className="user-btn"
-                onClick={() => loginWithRedirect()}
-              >
-                Log In
-              </button>
-            </li>
-          )}
-
-          {isAuthenticated ? (
-            <li className="cart-logo">
-              <NavLink to={"/cart"} onClick={() => setMenuClicked(false)}>
-                <ShoppingCart />
-                <span className="cart-item-count">{total_item}</span>
-              </NavLink>
-            </li>
-          ) : (
-            <li className="cart-logo">
-              <NavLink onClick={() => loginWithRedirect()}>
-                <ShoppingCart />
-                <span className="cart-item-count">{total_item}</span>
-              </NavLink>
-            </li>
-          )}
+          <li>{authButton}</li>
+          <li className="cart-logo">{cartLink}</li>
         </ul>
       </nav>
-      <button
-        type="button"
-        className="hamburger-menu"
-        onClick={() => setMenuClicked(!menuClicked)}
-      >
+      <button type="button" className="hamburger-menu" onClick={handleMenuClick}>
         {menuClicked ? <X /> : <AlignJustify />}
       </button>
     </header>

@@ -1,0 +1,8 @@
+.payment-container {
+  height: 100vh;
+}
+
+.payment-container img {
+  display: block;
+  margin: 0 auto;
+}

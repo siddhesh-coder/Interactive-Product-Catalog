@@ -1,9 +1,12 @@
-import React from 'react'
+import { CANCEL } from "../../utils/constants/constants";
+import "./payment.css";
 
 const Cancel = () => {
   return (
-    <div>Cancel</div>
-  )
-}
+    <div className="payment-container">
+      <img src={CANCEL} alt="cancel" />
+    </div>
+  );
+};
 
-export default Cancel
+export default Cancel;

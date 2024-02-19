@@ -53,3 +53,38 @@
 .price-flex > span:nth-child(1) {
   color: rgb(106, 106, 106);
 }
+
+/* Mobile styles */
+@media screen and (max-width: 376px) {
+  .pricing-container {
+    width: 335px;
+    /* padding: 15px; */
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+  
+  .pricing-title > p {
+    font-size: 20px;
+  }
+
+  .price-flex > span {
+    font-size: 1rem;
+    margin: 5px;
+  }
+}
+
+/* Tablet styles */
+@media screen and (min-width: 376px){
+  .pricing-container {
+    width: 410px;
+  }
+
+  .pricing-title > p {
+    font-size: 22px;
+  }
+
+  .price-flex > span {
+    font-size: 1.1rem;
+    margin: 8px;
+  }
+}
