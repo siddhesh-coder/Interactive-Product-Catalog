@@ -7,12 +7,10 @@ import appStore from "../../assets/app.webp";
 import playStore from "../../assets/play.webp";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Footer = () => {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
   const notify = () => {
     toast.success("Successfully Logout", {
       position: "top-center",
@@ -29,7 +27,7 @@ export const Footer = () => {
   return (
     <footer className="section-p1">
       <div className="col">
-        <Link to={'/'}>
+        <Link to={"/"}>
           <p className="logo">QuickMart</p>
         </Link>
         <h4>Contact</h4>
@@ -64,19 +62,9 @@ export const Footer = () => {
 
       <div className="col">
         <h4>My Account</h4>
-        {isAuthenticated ? (
-          <Link
-            onClick={() => {
-              logout({ logoutParams: { returnTo: window.location.origin } });
-              notify();
-            }}
-          >
-            Log Out
-          </Link>
-        ) : (
-          <Link onClick={() => loginWithRedirect()}>Log In</Link>
-        )}
-        <Link to={'/cart'}>View Cart</Link>
+
+        <Link>Log Out</Link>
+        <Link to={"/cart"}>View Cart</Link>
         <Link to={"#"}>Track My Order</Link>
         <Link to={"#"}>Help</Link>
       </div>

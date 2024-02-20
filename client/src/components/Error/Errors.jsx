@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import { useRouteError } from "react-router-dom";
 import { ERROR_IMG } from "../../utils/constants/constants";
+import './Errors.css';
 
 // eslint-disable-next-line react/display-name
 const Errors = () => {
