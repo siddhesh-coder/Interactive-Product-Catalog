@@ -34,11 +34,10 @@ const Navbar = () => {
   };
 
   const authButton = (
-    <NavLink to={'/auth?mode=login'}>
+    
       <button type="button" className="user-btn">
       Log In
     </button>
-    </NavLink>
     
   );
 
