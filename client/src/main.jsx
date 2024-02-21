@@ -5,6 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import Errors from "./components/Error/Errors.jsx";
 import Shimmer from "./components/Shimmer/Shimmer.jsx";
+import Login from "./components/Login/Login.jsx";
+import SignUp from "./components/SignUp/SignUp.jsx";
+
 
 const ProductPage = lazy(() =>
   import("../src/components/ProductPage/ProductPage.jsx")
@@ -44,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: (
-          <Suspense fallback={<Shimmer/>}>
+          <Suspense fallback={<h3>Loading...</h3>}>
             <Cart />
           </Suspense>
         ),
@@ -68,6 +71,14 @@ const router = createBrowserRouter([
       {
         path: '/shimmer',
         element: <Shimmer/>
+      },
+      {
+        path: '/login',
+        element: <Login/>
+      },
+      {
+        path: '/signup',
+        element: <SignUp/>
       }
     ],
     errorElement: <Errors />,

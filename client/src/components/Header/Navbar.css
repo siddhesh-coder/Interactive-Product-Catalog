@@ -64,6 +64,7 @@ li {
   border: 1px solid black;
   cursor: pointer;
   transition: 0.4s;
+  margin-right: 15px;
 }
 
 .user-btn:hover {
@@ -94,6 +95,7 @@ li {
 .hamburger-menu {
   display: none;
 }
+
 
 @media (max-width: 768px) {
   .navbar {

@@ -5,22 +5,11 @@ import { useCartContext } from "../Context/cart_context";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import useNotification from "../../hooks/useNotification";
 
 const CartItem = ({ id, name, price, productCount, image }) => {
   const { removeItem, setDecrement, setIncrement } = useCartContext();
-
-  const notify = () => {
-    toast.success("Item removed", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
+  const notify = useNotification({ message: "Item removed" });
 
   return (
     <div className="cart_heading grid grid-five-column">

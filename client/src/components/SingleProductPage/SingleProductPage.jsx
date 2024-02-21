@@ -10,14 +10,14 @@ import DeliveryService from "../DeliveryService/DeliveryService";
 import CartAmount from "../CartAmount/CartAmount";
 import { ShoppingCart } from "lucide-react";
 import { useCartContext } from "../Context/cart_context";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import useNotification from "../../hooks/useNotification";
 
 const SingleProductPage = () => {
   const { addToCart } = useCartContext();
   const productId = useParams();
   const singleData = useSingleProduct(productId);
   const [productCount, setProductCount] = useState(1);
+  const notify = useNotification({ message: "Product successfully added to your cart" });
 
   const { title, rating, price, description, image, id } = singleData || "";
 
@@ -30,19 +30,6 @@ const SingleProductPage = () => {
 
   const setDecrement = () =>
     productCount > 1 ? setProductCount(productCount - 1) : productCount(1);
-
-  const notify = () => {
-    toast.success("Product successfully added to your cart", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   return (
     <div className="product-details">

@@ -1,36 +1,47 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./Cart.css";
 import { useCartContext } from "../Context/cart_context";
 import CartItem from "./CartItem";
 import { NavLink } from "react-router-dom";
 import { NO_ITEM } from "../../utils/constants/constants";
 import TotalPricing from "../TotalPricing/TotalPricing";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { auth } from "../../firebase";
+import useNotification from "../../hooks/useNotification";
 
 const Cart = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const { cart, deleteCart } = useCartContext();
 
-  if (cart.length === 0) {
+  const notify = useNotification({ message: "Cart successfully cleared" });
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if(user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (!isAuthenticated) {
+    return (
+      <div className="auth-msg-cart">
+        <p>Please log in to view your cart.</p>
+        <NavLink to={"/login"}>Login</NavLink>
+      </div>
+    );
+  }
+
+  if (cart.length === 0 && isAuthenticated) {
     return (
       <div className="no-item">
         <img src={NO_ITEM} alt="no Item" />
       </div>
     );
   }
-
-  const notify = () => {
-    toast.success("Cart successfully cleared", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   return (
     <div className="cart-main-container">

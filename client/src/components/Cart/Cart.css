@@ -2,6 +2,20 @@
   padding: 9rem 8rem;
 }
 
+.auth-msg-cart {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  a{
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
 .grid-four-column {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -184,7 +198,6 @@
 }
 
 @media (max-width: 768px) {
-
   .cart-hide {
     display: none;
   }
@@ -199,7 +212,7 @@
 }
 
 @media screen and (max-width: 475px) {
-  .cart-pro-title{
+  .cart-pro-title {
     width: 80px;
     white-space: nowrap;
     overflow: hidden;

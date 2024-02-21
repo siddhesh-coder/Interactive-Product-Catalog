@@ -1,44 +1,66 @@
 import "./Navbar.css";
 import company_logo from "../../assets/company_logo.webp";
 import { AlignJustify, ShoppingCart, X } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCartContext } from "../Context/cart_context";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+import useNotification from "../../hooks/useNotification";
 
 const Navbar = () => {
   const { total_item } = useCartContext();
   const [menuClicked, setMenuClicked] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+  const notify = useNotification({ message: "Sign-out successfully ✅"});
 
-  // const handleLogout = () => {
-  //   logout({ logoutParams: { returnTo: window.location.origin } });
-  //   notify();
-  // };
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
-  // const notify = () => {
-  //   toast.success("Successfully Logout", {
-  //     position: "top-center",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //   });
-  // };
+  const signOutAuth = async () => {
+    try {
+      const auth = getAuth();
+      await signOut(auth);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   const handleMenuClick = () => {
     setMenuClicked(!menuClicked);
   };
 
   const authButton = (
-    
-      <button type="button" className="user-btn">
-      Log In
-    </button>
-    
+    <>
+      {isAuthenticated ? (
+        <button
+          type="button"
+          className="user-btn"
+          onClick={async () => {
+            await signOutAuth();
+            notify();
+          }}
+        >
+          Sign out
+        </button>
+      ) : (
+        <NavLink to={"/login"}>
+          <button type="button" className="user-btn">
+            Log In
+          </button>
+        </NavLink>
+      )}
+    </>
   );
 
   const cartLink = (
