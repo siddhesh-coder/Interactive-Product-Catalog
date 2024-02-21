@@ -1,6 +1,6 @@
 # Interactive Product Catalog Overview [QuickMart]
 
-**Live Link:**
+**Live Link:** https://interactive-product-catalog.netlify.app/
 
 **Description:**
 
@@ -36,7 +36,7 @@ Provides a way for users to sort products by price [low, high], making it easier
 
 5. Login / Logout Component: 
 
-Allows users to authenticate themselves by logging in or out of their accounts. Auth0 authentication is utilized for secure user authentication.
+Allows users to authenticate themselves by logging in or out of their accounts. Firebase authentication is utilized for secure user authentication.
 
 ![alt text](/Project%20UI/loginSignup.png)
 
