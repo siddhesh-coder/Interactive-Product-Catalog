@@ -38,7 +38,7 @@ Provides a way for users to sort products by price [low, high], making it easier
 
 Allows users to authenticate themselves by logging in or out of their accounts. Auth0 authentication is utilized for secure user authentication.
 
-![alt text](/Project%20UI/loginSignup.png)
+![alt text](/Project%20UI/loginSignup.jpg)
 
 6. Error and Cart Empty Components: 
 

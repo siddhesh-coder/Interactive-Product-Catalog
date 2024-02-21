@@ -9,12 +9,12 @@ import Login from "./components/Login/Login.jsx";
 import SignUp from "./components/SignUp/SignUp.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
+import Cancel from "./components/Payment/Cancel.jsx";
+import Success from "./components/Payment/Success.jsx";
 
 const ProductPage = lazy(() =>
   import("../src/components/ProductPage/ProductPage.jsx")
 );
-const Success = lazy(() => import("./components/Payment/Success.jsx"));
-const Cancel = lazy(() => import("./components/Payment/Cancel.jsx"));
 const SingleProductPage = lazy(() =>
   import("./components/SingleProductPage/SingleProductPage.jsx")
 );
