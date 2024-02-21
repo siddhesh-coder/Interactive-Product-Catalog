@@ -71,7 +71,7 @@ Allow Payments by stripe
 
 **Authentication:**
 
-1. **Auth0:** A flexible authentication and authorization platform, used to handle user authentication securely.
+1. **Firebase:** A flexible authentication and authorization , used to handle user authentication securely.
 
 **Payment Gateway:**
 
