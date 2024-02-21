@@ -54,7 +54,7 @@
 /* Media query for mobile devices */
 @media (max-width: 576px) {
   .container {
-    margin: 80px 10px 0px 10px; /* Adjust margin for mobile */
+    margin: 120px 5px 0px 20px; /* Adjust margin for mobile */
   }
   
   .card {

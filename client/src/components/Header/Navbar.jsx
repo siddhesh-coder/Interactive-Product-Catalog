@@ -99,6 +99,14 @@ const Navbar = () => {
               Women
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to={'/aboutus'}
+              onClick={() => setMenuClicked(false)}
+            >
+              About Us
+            </NavLink>
+          </li>
           <li>{authButton}</li>
           <li className="cart-logo">{cartLink}</li>
         </ul>

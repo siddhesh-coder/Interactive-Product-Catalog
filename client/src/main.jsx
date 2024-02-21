@@ -7,14 +7,14 @@ import Errors from "./components/Error/Errors.jsx";
 import Shimmer from "./components/Shimmer/Shimmer.jsx";
 import Login from "./components/Login/Login.jsx";
 import SignUp from "./components/SignUp/SignUp.jsx";
-
+import Cart from "./components/Cart/Cart.jsx";
+import AboutUs from "./components/AboutUs/AboutUs.jsx";
 
 const ProductPage = lazy(() =>
   import("../src/components/ProductPage/ProductPage.jsx")
 );
 const Success = lazy(() => import("./components/Payment/Success.jsx"));
 const Cancel = lazy(() => import("./components/Payment/Cancel.jsx"));
-const Cart = lazy(() => import("./components/Cart/Cart.jsx"));
 const SingleProductPage = lazy(() =>
   import("./components/SingleProductPage/SingleProductPage.jsx")
 );
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/product-page/:categoryId",
         element: (
-          <Suspense fallback={<Shimmer/>}> 
+          <Suspense fallback={<Shimmer />}>
             <ProductPage />
           </Suspense>
         ),
@@ -39,18 +39,14 @@ const router = createBrowserRouter([
       {
         path: "/product-details/:productId",
         element: (
-          <Suspense fallback={<Shimmer/>}>
+          <Suspense fallback={<Shimmer />}>
             <SingleProductPage />
           </Suspense>
         ),
       },
       {
         path: "/cart",
-        element: (
-          <Suspense fallback={<h3>Loading...</h3>}>
-            <Cart />
-          </Suspense>
-        ),
+        element: <Cart />,
       },
       {
         path: "/success",
@@ -69,17 +65,21 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/shimmer',
-        element: <Shimmer/>
+        path: "/shimmer",
+        element: <Shimmer />,
       },
       {
-        path: '/login',
-        element: <Login/>
+        path: "/login",
+        element: <Login />,
       },
       {
-        path: '/signup',
-        element: <SignUp/>
-      }
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUs />,
+      },
     ],
     errorElement: <Errors />,
   },

@@ -7,22 +7,8 @@ import appStore from "../../assets/app.webp";
 import playStore from "../../assets/play.webp";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export const Footer = () => {
-  const notify = () => {
-    toast.success("Successfully Logout", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   return (
     <footer className="section-p1">
@@ -53,7 +39,7 @@ export const Footer = () => {
 
       <div className="col">
         <h4>About</h4>
-        <Link to={"#"}>About Us</Link>
+        <Link to={"/aboutus"}>About Us</Link>
         <Link to={"#"}>Delivery Information</Link>
         <Link to={"#"}>Privacy Policy</Link>
         <Link to={"#"}>Terms & Conditions</Link>
