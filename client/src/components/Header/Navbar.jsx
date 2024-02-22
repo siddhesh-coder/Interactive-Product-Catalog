@@ -107,6 +107,14 @@ const Navbar = () => {
               About Us
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to={'/nikestore'}
+              onClick={() => setMenuClicked(false)}
+            >
+              Nike Store
+            </NavLink>
+          </li>
           <li>{authButton}</li>
           <li className="cart-logo">{cartLink}</li>
         </ul>

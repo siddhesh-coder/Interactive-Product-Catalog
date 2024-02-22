@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Star, StarHalf, ShoppingCart, Heart } from "lucide-react";
+import { ShoppingCart, Heart } from "lucide-react";
 import "./ProductCard.css";
 import FormatePrice from "../FormatPrice/FormatePrice";
 import Ratings from "../Ratings/Ratings";

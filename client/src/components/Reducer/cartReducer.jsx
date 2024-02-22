@@ -1,7 +1,6 @@
 import React from "react";
 
 const cartReducer = (state, action) => {
-  
   if (action.type === "ADD_TO_CART") {
     let { id, productCount, singleData } = action.payload;
 
@@ -63,74 +62,73 @@ const cartReducer = (state, action) => {
     };
   }
 
-  if(action.type === "SET_DECREMENT"){
-     let updateProduct = state.cart.map((currItem)=>{
-         if(currItem.id === action.payload){
-           let newProductCount = currItem.productCount - 1;
-           if(newProductCount <= 1){
-               newProductCount = 1;
-           }
-           return {
-            ...currItem,
-            productCount: newProductCount,
-           }
-         }else{
-          return currItem
-         }
-      })
-      return {
-        ...state,
-        cart: updateProduct,
-      }
-  }
-
-  if(action.type === "SET_INCREMENT"){
-    let updateProduct = state.cart.map((currItem)=>{
-      if(currItem.id === action.payload){
-        console.log(currItem);
-        let newProductCount = currItem.productCount + 1;
-        if(newProductCount >= currItem.max){
-            newProductCount = currItem.max;
+  if (action.type === "SET_DECREMENT") {
+    let updateProduct = state.cart.map((currItem) => {
+      if (currItem.id === action.payload) {
+        let newProductCount = currItem.productCount - 1;
+        if (newProductCount <= 1) {
+          newProductCount = 1;
         }
         return {
-         ...currItem,
-         productCount: newProductCount,
-        }
-      }else{
-       return currItem
+          ...currItem,
+          productCount: newProductCount,
+        };
+      } else {
+        return currItem;
       }
-   })
-   return {
-     ...state,
-     cart: updateProduct,
-   }
+    });
+    return {
+      ...state,
+      cart: updateProduct,
+    };
   }
 
-  if(action.type === "CART_COUNT"){
-     let cartCount = state.cart.reduce((acc,currItem) => {
-        let { productCount } = currItem;
-        acc += productCount;
-        return acc;
-     }, 0);
+  if (action.type === "SET_INCREMENT") {
+    let updateProduct = state.cart.map((currItem) => {
+      if (currItem.id === action.payload) {
+        console.log(currItem);
+        let newProductCount = currItem.productCount + 1;
+        if (newProductCount >= currItem.max) {
+          newProductCount = currItem.max;
+        }
+        return {
+          ...currItem,
+          productCount: newProductCount,
+        };
+      } else {
+        return currItem;
+      }
+    });
+    return {
+      ...state,
+      cart: updateProduct,
+    };
+  }
 
-     return {
+  if (action.type === "CART_COUNT") {
+    let cartCount = state.cart.reduce((acc, currItem) => {
+      let { productCount } = currItem;
+      acc += productCount;
+      return acc;
+    }, 0);
+
+    return {
       ...state,
       total_item: cartCount,
-     }
+    };
   }
 
-  if(action.type === "TOTAL_PRICE"){
-   
-    let totalPrice = state.cart.reduce((acc,currItem) => {
+  if (action.type === "TOTAL_PRICE") {
+    let totalPrice = state.cart.reduce((acc, currItem) => {
       let { price, productCount } = currItem;
       acc += price * productCount;
       return acc;
-   }, 0);
+    }, 0);
 
-   return {
-    ...state,
-    total_count: totalPrice,
-   }
+    return {
+      ...state,
+      total_count: totalPrice,
+    };
   }
 
   return state;
