@@ -11,7 +11,6 @@ import Cart from "./components/Cart/Cart.jsx";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
 import Cancel from "./components/Payment/Cancel.jsx";
 import Success from "./components/Payment/Success.jsx";
-import NikeStore from "./components/Store/NikeStore.jsx";
 
 const ProductPage = lazy(() =>
   import("../src/components/ProductPage/ProductPage.jsx")
@@ -80,10 +79,6 @@ const router = createBrowserRouter([
       {
         path: "/aboutus",
         element: <AboutUs />,
-      },
-      {
-        path: '/nikestore',
-        element: <NikeStore/>
       }
     ],
     errorElement: <Errors />,
