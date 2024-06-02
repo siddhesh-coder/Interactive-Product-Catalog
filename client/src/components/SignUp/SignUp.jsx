@@ -50,6 +50,7 @@ const SignUp = () => {
         <h2>Sign Up</h2>
         <InputControl
           label={"Name"}
+          inputType={"text"}
           placeholder="Jhon dev"
           onChange={(e) =>
             setValue((prev) => ({ ...prev, name: e.target.value }))
@@ -57,6 +58,7 @@ const SignUp = () => {
         />
         <InputControl
           label={"Email"}
+          inputType={"email"}
           placeholder="Jhondev123@gmail.com"
           onChange={(e) =>
             setValue((prev) => ({ ...prev, email: e.target.value }))
@@ -64,6 +66,7 @@ const SignUp = () => {
         />
         <InputControl
           label={"Password"}
+          inputType={"password"}
           placeholder="Enter Password"
           onChange={(e) =>
             setValue((prev) => ({ ...prev, password: e.target.value }))

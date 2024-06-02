@@ -4,7 +4,7 @@ const InputControl = (props) => {
   return (
     <div className="input-auth">
       {props.label && <label>{props.label}</label>}
-      <input type="text" {...props} />
+      <input type={props.inputType} {...props} />
     </div>
   );
 };
